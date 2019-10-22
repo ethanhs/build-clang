@@ -13,7 +13,7 @@ jobs:
       - run: choco install gnuwin32-coreutils.install ninja nsis-unicode
       - run: choco install swig --version 3.0.8
       - run: svn info https://llvm.org/svn/llvm-project/ | grep Revision | cut -d' ' -f2 > revision.txt
-      - run: for /F %%g in ('svn info https://llvm.org/svn/llvm-project/ | grep Revision | cut -d" " -f2') do set REVISION=%%g
+      - run: for /F %%g in ("svn info https://llvm.org/svn/llvm-project/ | grep Revision | cut -d' ' -f2") do set REVISION=%%g
       - run: curl https://raw.githubusercontent.com/llvm/llvm-project/master/llvm/utils/release/build_llvm_package.bat -o build_llvm_package.bat
       - run: build_llvm_package.bat %REVISION%
 
