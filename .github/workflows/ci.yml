@@ -7,11 +7,10 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@master
-      -
-        name: Install deps
-        uses: crazy-max/ghaction-chocolatey@v1
-        with:
-          args: install gnuwin32-coreutils.install ninja nsis-unicode swig==3.0.8
+      - name: Install chocolatey
+        run: Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+        shell: powershell
+      - run: choco install gnuwin32-coreutils.install ninja nsis-unicode swig==3.0.8
 
       - run: svn info https://llvm.org/svn/llvm-project/ | grep Revision | cut -d' ' -f2 > revision.txt
       - run: set /p REVISION=<revision.txt
