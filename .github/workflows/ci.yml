@@ -14,6 +14,8 @@ jobs:
       - run: choco install swig --version 3.0.8
       - run: svn info https://llvm.org/svn/llvm-project/ | grep Revision | cut -d' ' -f2 > revision.txt
       - run: set /p REVISION=<revision.txt
+      - run: echo %REVISION%
+      - run: cat revision.txt
       - run: curl https://raw.githubusercontent.com/llvm/llvm-project/master/llvm/utils/release/build_llvm_package.bat -o build_llvm_package.bat
       - run: build_llvm_package.bat %REVISION%
 
