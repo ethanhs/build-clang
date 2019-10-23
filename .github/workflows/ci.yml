@@ -14,5 +14,5 @@ jobs:
       - run: choco install swig --version 3.0.8
       -
         name: Get revision and do the build
-        run: ./build_llvm_package.bat "$(svn info https://llvm.org/svn/llvm-project/ | grep Revision | cut -d' ' -f2)"
+        run: ./build_llvm_package.bat "$(svn info https://llvm.org/svn/llvm-project/ | grep Revision | cut -d' ' -f2)" 2> $null
         shell: powershell
