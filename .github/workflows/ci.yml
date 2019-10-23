@@ -1,5 +1,8 @@
 on: push
-
+#on:
+#  schedule:
+#    # * is a special character in YAML so you have to quote this string
+#    - cron:  '0 0 * * *'
 jobs:
   test:
     runs-on: windows-latest
@@ -16,5 +19,5 @@ jobs:
       - run: curl https://raw.githubusercontent.com/llvm/llvm-project/master/llvm/utils/release/build_llvm_package.bat -o build_llvm_package.bat
       - 
         name: Get revision and do the build
-        run: REVISION=$(svn info https://llvm.org/svn/llvm-project/ | grep Revision | cut -d' ' -f2) build_llvm_package.bat $REVISION
+        run: REVISION=$(svn info https://llvm.org/svn/llvm-project/ | grep Revision | cut -d' ' -f2) ./build_llvm_package.bat $REVISION
         shell: bash
