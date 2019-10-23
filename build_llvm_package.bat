@@ -68,8 +68,8 @@ REM TODO: Run the "check-all" tests.
 
 set "VSCMD_START_DIR=%CD%"
 call "%vsdevcmd%" -arch=x86
-set CC=
-set CXX=
+set CC=clang-cl
+set CXX=clang-cl
 mkdir build32_stage0
 cd build32_stage0
 cmake -GNinja %cmake_flags% -DPYTHON_HOME=%python32_dir% -DPYTHON_EXECUTABLE=%python32_dir%\python.exe ..\llvm || exit /b
