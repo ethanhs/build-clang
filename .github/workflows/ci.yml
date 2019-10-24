@@ -12,5 +12,5 @@ jobs:
         uses: actions/checkout@master
       - run: choco install gnuwin32-coreutils.install ninja nsis-unicode
       - run: choco install swig --version 3.0.8
-      - run: for /f "usebackq tokens=*" %%a in (`svn info https://llvm.org/svn/llvm-project/ | grep Revision | cut -d' ' -f2`) do .\build_llvm_package.bat %%a
+      - run: for /f "usebackq tokens=*" %%a in (`svn info https://llvm.org/svn/llvm-project/ ^| grep Revision ^| cut -d' ' -f2`) do .\build_llvm_package.bat %%a
         shell: cmd
