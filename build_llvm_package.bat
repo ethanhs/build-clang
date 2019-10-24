@@ -24,6 +24,8 @@ set vsdevcmd=C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Comm
 set python32_dir=C:\hostedtoolcache\windows\Python\3.6.8\x86
 set python64_dir=C:\hostedtoolcache\windows\Python\3.6.8\x64
 
+setx path "%path%;C:\Strawberry\perl\bin"
+
 set revision=%1
 set branch=trunk
 set package_version=10.0.0-r%revision%
