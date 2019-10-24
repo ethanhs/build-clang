@@ -16,6 +16,6 @@ jobs:
         name: Get revision and do the build
         run: $env:REVISION=$(svn info https://llvm.org/svn/llvm-project/ | grep Revision | cut -d' ' -f2)
         shell: powershell
-      - run: build_llvm_package.bat $REVISION
+      - run: .\build_llvm_package.bat $REVISION
       - run: type output
         if: failure()
