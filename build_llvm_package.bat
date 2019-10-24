@@ -24,8 +24,6 @@ set vsdevcmd=C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Comm
 set python32_dir=C:\hostedtoolcache\windows\Python\3.6.8\x86
 set python64_dir=C:\hostedtoolcache\windows\Python\3.6.8\x64
 
-setx path "%path%;C:\Strawberry\perl\bin"
-
 set revision=%1
 set branch=trunk
 set package_version=10.0.0-r%revision%
@@ -55,6 +53,7 @@ svn.exe export -r %revision% http://llvm.org/svn/llvm-project/lldb/%branch% llvm
 
 REM Setting CMAKE_CL_SHOWINCLUDES_PREFIX to work around PR27226.
 set cmake_flags=^
+    -DPERL_EXECUTABLE=C:\Strawberry\perl\bin\perl.exe
 	-DCMAKE_BUILD_TYPE=Release ^
 	-DLLVM_ENABLE_ASSERTIONS=ON ^
 	-DLLVM_INSTALL_TOOLCHAIN_ONLY=ON ^
