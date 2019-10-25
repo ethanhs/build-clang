@@ -54,6 +54,7 @@ svn.exe export -r %revision% http://llvm.org/svn/llvm-project/lldb/%branch% llvm
 REM Setting CMAKE_CL_SHOWINCLUDES_PREFIX to work around PR27226.
 set cmake_flags=^
     -DPERL_EXECUTABLE=C:\Strawberry\perl\bin\perl.exe
+	-DCMAKE_JOB_POOLS:STRING=compile=2;link=2
 	-DCMAKE_BUILD_TYPE=Release ^
 	-DLLVM_ENABLE_ASSERTIONS=ON ^
 	-DLLVM_INSTALL_TOOLCHAIN_ONLY=ON ^
